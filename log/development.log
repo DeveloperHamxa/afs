@@ -6879,3 +6879,522 @@ Processing by Api::ProductsController#index as JSON
 Completed 200 OK in 15ms (Views: 12.7ms | ActiveRecord: 1.5ms | Allocations: 2094)
 
 
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20221111122340)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (32.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "descripiton" text, "price" integer, "quantity" integer, "image_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20221111122340)
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "descripiton" text, "price" integer, "quantity" integer, "image_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20221111122340)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "descripiton" text, "price" integer, "quantity" integer, "image_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProducts (20221111122340)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "descripiton" text, "price" integer, "quantity" integer, "image_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (1378.1ms)[0m  [1m[35mCREATE DATABASE "ecommerce_project_development" ENCODING = 'unicode'[0m
+  [1m[35m (807.3ms)[0m  [1m[35mCREATE DATABASE "ecommerce_project_test" ENCODING = 'unicode'[0m
+  [1m[35m (120.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (94.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20221108093540)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (78.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221108093540"]]
+  [1m[36mTRANSACTION (17.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20221108114958)
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (107.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (41.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (99.5ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (64.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (76.9ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (29.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221108114958"]]
+  [1m[36mTRANSACTION (18.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProducts (20221111122340)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (107.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "descripiton" text, "price" integer, "quantity" integer, "image_url" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221111122340"]]
+  [1m[36mTRANSACTION (13.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-11 12:27:16.385879"], ["updated_at", "2022-11-11 12:27:16.385879"]]
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductCategories (20221111122740)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (62.4ms)[0m  [1m[35mCREATE TABLE "product_categories" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_005b71ca83"
+FOREIGN KEY ("category_id")
+  REFERENCES "Category" ("id")
+, CONSTRAINT "fk_rails_98a9a32a41"
+FOREIGN KEY ("product_id")
+  REFERENCES "Product" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductCategories (20221111122740)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (58.4ms)[0m  [1m[35mCREATE TABLE "product_categories" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_005b71ca83"
+FOREIGN KEY ("category_id")
+  REFERENCES "category" ("id")
+, CONSTRAINT "fk_rails_98a9a32a41"
+FOREIGN KEY ("product_id")
+  REFERENCES "product" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateProductCategories (20221111122740)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (135.3ms)[0m  [1m[35mCREATE TABLE "product_categories" ("id" bigserial primary key, "category_id" bigint, "product_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_005b71ca83"
+FOREIGN KEY ("category_id")
+  REFERENCES "categories" ("id")
+, CONSTRAINT "fk_rails_98a9a32a41"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (88.8ms)[0m  [1m[35mCREATE INDEX "index_product_categories_on_category_id" ON "product_categories" ("category_id")[0m
+  [1m[35m (50.3ms)[0m  [1m[35mCREATE INDEX "index_product_categories_on_product_id" ON "product_categories" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221111122740"]]
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCategory Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "categories"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT  INTO "categories" ("name","created_at","updated_at") VALUES ('Business','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Electronics','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Books','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Accessories','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Health and Personal Care','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Food and Beverage','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Supplies','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Furniture','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834'),('Jewelry','2022-11-11 12:32:48.086834','2022-11-11 12:32:48.086834')[0m
+  [1m[36mTRANSACTION (22.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Create (2.6ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Test Product"], ["descripiton", "testing"], ["price", 300], ["quantity", 4], ["image_url", "www.google.com"], ["created_at", "2022-11-11 12:34:30.537640"], ["updated_at", "2022-11-11 12:34:30.537640"]]
+  [1m[36mTRANSACTION (27.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProductCategory Create (2.6ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 1], ["product_id", 1], ["created_at", "2022-11-11 12:34:50.025755"], ["updated_at", "2022-11-11 12:34:50.025755"]]
+  [1m[36mTRANSACTION (36.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+Started GET "/categories" for 127.0.0.1 at 2022-11-11 17:41:12 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as JSON
+No template found for CategoriesController#index, rendering head :no_content
+Completed 204 No Content in 11ms (ActiveRecord: 0.0ms | Allocations: 4209)
+
+
+Started GET "/categories" for 127.0.0.1 at 2022-11-11 17:41:16 +0500
+Processing by CategoriesController#index as JSON
+No template found for CategoriesController#index, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 189)
+
+
+Started GET "/api/products.json" for 127.0.0.1 at 2022-11-11 17:41:58 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/products.json"):
+  
+Started GET "/projects" for 127.0.0.1 at 2022-11-11 17:42:04 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/projects"):
+  
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:42:30 +0500
+Processing by ProductsController#index as JSON
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2723)
+
+
+  
+NameError (uninitialized constant ProductsController::Products
+
+        @products = Products.all 
+                    ^^^^^^^^):
+  
+app/controllers/products_controller.rb:3:in `index'
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:43:01 +0500
+Processing by ProductsController#index as JSON
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2583)
+
+
+  
+NameError (uninitialized constant ProductsController::Products
+
+        @products = Products.all 
+                    ^^^^^^^^):
+  
+app/controllers/products_controller.rb:4:in `index'
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:43:52 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProductsController#index as JSON
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 3959)
+
+
+  
+NameError (uninitialized constant ProductsController::Products
+
+        @products = Products.all 
+                    ^^^^^^^^):
+  
+app/controllers/products_controller.rb:4:in `index'
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:44:05 +0500
+Processing by ProductsController#index as JSON
+  Rendering products/index.json.jbuilder
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.json.jbuilder:1
+  Rendered products/index.json.jbuilder (Duration: 39.2ms | Allocations: 12533)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 5.4ms | Allocations: 16002)
+
+
+  
+ActionView::Template::Error (undefined method `description' for #<Product id: 1, title: "Test Product", descripiton: "testing", price: 300, quantity: 4, image_url: "www.google.com", created_at: "2022-11-11 12:34:30.537640000 +0000", updated_at: "2022-11-11 12:34:30.537640000 +0000">
+Did you mean?  descripiton
+               descripiton?
+               descripiton=):
+    1: json.array! @products do |product|
+    2:     json.name product.title
+    3:     json.description product.description
+    4:     json.price product.price
+    5:     json.quantity product.quantity
+    6:     json.image_url product.image_url
+  
+app/views/products/index.json.jbuilder:3
+app/views/products/index.json.jbuilder:1
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:44:32 +0500
+Processing by ProductsController#index as JSON
+  Rendering products/index.json.jbuilder
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.json.jbuilder:1
+  Rendered products/index.json.jbuilder (Duration: 28.1ms | Allocations: 6596)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.6ms | Allocations: 7526)
+
+
+  
+ActionView::Template::Error (undefined method `category' for #<Product id: 1, title: "Test Product", descripiton: "testing", price: 300, quantity: 4, image_url: "www.google.com", created_at: "2022-11-11 12:34:30.537640000 +0000", updated_at: "2022-11-11 12:34:30.537640000 +0000">
+Did you mean?  category_ids):
+    4:     json.price product.price
+    5:     json.quantity product.quantity
+    6:     json.image_url product.image_url
+    7:     json.category product.category
+    8:   end
+  
+app/views/products/index.json.jbuilder:7
+app/views/products/index.json.jbuilder:1
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:44:42 +0500
+Processing by ProductsController#index as JSON
+  Rendering products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.json.jbuilder:1
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/index.json.jbuilder:9
+  Rendered products/index.json.jbuilder (Duration: 94.7ms | Allocations: 19305)
+Completed 200 OK in 99ms (Views: 90.9ms | ActiveRecord: 6.9ms | Allocations: 20300)
+
+
+Started GET "/categories" for 127.0.0.1 at 2022-11-11 17:44:50 +0500
+Processing by CategoriesController#index as JSON
+  Rendering categories/index.json.jbuilder
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.json.jbuilder:1
+  Rendered categories/index.json.jbuilder (Duration: 6.7ms | Allocations: 1199)
+Completed 200 OK in 12ms (Views: 8.3ms | ActiveRecord: 1.3ms | Allocations: 2080)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-11-11 17:45:08 +0500
+Processing by ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Test Product", "description"=>"testing the test product", "price"=>"300", "quantity"=>"5", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["25"]}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms | Allocations: 521)
+
+
+  
+ActionController::InvalidAuthenticityToken (Can't verify CSRF token authenticity.):
+  
+actionpack (7.0.4) lib/action_controller/metal/request_forgery_protection.rb:251:in `handle_unverified_request'
+actionpack (7.0.4) lib/action_controller/metal/request_forgery_protection.rb:284:in `handle_unverified_request'
+actionpack (7.0.4) lib/action_controller/metal/request_forgery_protection.rb:273:in `verify_authenticity_token'
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:199:in `block (2 levels) in halting'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:200:in `block in halting'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+activesupport (7.0.4) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/articles" for 127.0.0.1 at 2022-11-11 17:45:28 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+Started GET "/articles" for 127.0.0.1 at 2022-11-11 17:46:02 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+Started POST "/products" for 127.0.0.1 at 2022-11-11 17:46:06 +0500
+Processing by ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Test Product", "description"=>"testing the test product", "price"=>"300", "quantity"=>"5", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["25"]}}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.5ms | Allocations: 4971)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'description' for Product.
+
+          raise UnknownAttributeError.new(self, k.to_s)
+          ^^^^^):
+  
+app/controllers/products_controller.rb:14:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-11-11 17:46:43 +0500
+Processing by ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Test Product", "descripiton"=>"testing the test product", "price"=>"300", "quantity"=>"5", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["25"]}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 25]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+Completed 404 Not Found in 32ms (ActiveRecord: 8.6ms | Allocations: 8630)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'id'=[25]):
+  
+app/controllers/products_controller.rb:14:in `create'
+Started POST "/products" for 127.0.0.1 at 2022-11-11 17:46:49 +0500
+Processing by ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Test Product", "descripiton"=>"testing the test product", "price"=>"300", "quantity"=>"5", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["1"]}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Test Product"], ["descripiton", "testing the test product"], ["price", 300], ["quantity", 5], ["image_url", "https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], ["created_at", "2022-11-11 12:46:50.009302"], ["updated_at", "2022-11-11 12:46:50.009302"]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mProductCategory Create (1.2ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 1], ["product_id", 2], ["created_at", "2022-11-11 12:46:50.015731"], ["updated_at", "2022-11-11 12:46:50.015731"]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (25.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.56ms)
+Completed 200 OK in 80ms (Views: 18.4ms | ActiveRecord: 31.3ms | Allocations: 16534)
+
+
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:46:56 +0500
+Processing by ProductsController#index as JSON
+  Rendering products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.json.jbuilder:1
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/index.json.jbuilder:9
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/products/index.json.jbuilder:9
+  Rendered products/index.json.jbuilder (Duration: 23.5ms | Allocations: 4104)
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 2.8ms | Allocations: 4754)
+
+
+Started POST "/products" for 127.0.0.1 at 2022-11-11 17:47:10 +0500
+Processing by ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Test Product", "descripiton"=>"testing the test product", "price"=>"300", "quantity"=>"5", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["2"]}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Test Product"], ["descripiton", "testing the test product"], ["price", 300], ["quantity", 5], ["image_url", "https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], ["created_at", "2022-11-11 12:47:10.620684"], ["updated_at", "2022-11-11 12:47:10.620684"]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mProductCategory Create (0.7ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 2], ["product_id", 3], ["created_at", "2022-11-11 12:47:10.624889"], ["updated_at", "2022-11-11 12:47:10.624889"]]
+  ↳ app/controllers/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (11.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/products_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.28ms)
+Completed 200 OK in 37ms (Views: 0.8ms | ActiveRecord: 13.0ms | Allocations: 4671)
+
+
+Started GET "/products" for 127.0.0.1 at 2022-11-11 17:47:13 +0500
+Processing by ProductsController#index as JSON
+  Rendering products/index.json.jbuilder
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.json.jbuilder:1
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/products/index.json.jbuilder:9
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/products/index.json.jbuilder:9
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/products/index.json.jbuilder:9
+  Rendered products/index.json.jbuilder (Duration: 28.0ms | Allocations: 3872)
+Completed 200 OK in 31ms (Views: 24.3ms | ActiveRecord: 5.4ms | Allocations: 4161)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2022-11-11 17:47:23 +0500
+Processing by ProductsController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/products_controller.rb:9:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.62ms)
+Completed 200 OK in 6ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1759)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-11 17:48:54 +0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  Rendered api/products/index.json.jbuilder (Duration: 41.1ms | Allocations: 13562)
+Completed 200 OK in 48ms (Views: 29.7ms | ActiveRecord: 13.4ms | Allocations: 16158)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2022-11-11 17:48:57 +0500
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (Duration: 5.6ms | Allocations: 1199)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.5ms | Allocations: 2083)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-11 17:49:36 +0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (1.7ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  Rendered api/products/index.json.jbuilder (Duration: 39.2ms | Allocations: 3965)
+Completed 200 OK in 41ms (Views: 35.5ms | ActiveRecord: 4.7ms | Allocations: 4281)
+
+
+Started DELETE "/products/1" for 127.0.0.1 at 2022-11-11 17:49:47 +0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/products/1"):
+  
+Started GET "/routes" for 127.0.0.1 at 2022-11-11 17:50:14 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started DELETE "/products/1" for 127.0.0.1 at 2022-11-11 17:51:57 +0500
+  
+ActionController::RoutingError (No route matches [DELETE] "/products/1"):
+  
+Started GET "/products/1" for 127.0.0.1 at 2022-11-11 17:52:09 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/products/1"):
+  
+Started GET "/api/products" for 127.0.0.1 at 2022-11-11 17:52:24 +0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  Rendered api/products/index.json.jbuilder (Duration: 13.0ms | Allocations: 3869)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 1.8ms | Allocations: 4161)
+
+
