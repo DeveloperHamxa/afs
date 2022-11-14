@@ -1,4 +1,4 @@
-class OrdersController < ApplicationController
+class Api::OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def show
@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
 
 
     private
+    
 
     def order_params
       params.require(:order).permit(:address, :price, :quantity, product_ids: [])
