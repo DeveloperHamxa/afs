@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
   namespace :api do
     resources :categories, defaults: {format: :json},  only: [:index]
-    resources :products, defaults: {format: :json},  only: [:index, :create, :show, :de]
+    resources :products, defaults: {format: :json},  only: [:index, :create, :show, :destroy]
   end
-
+  resources :orders, defaults: {format: :json},  only: [:create]
 end
