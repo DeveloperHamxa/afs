@@ -1,6 +1,10 @@
 class Api::OrdersController < ApplicationController
     skip_before_action :verify_authenticity_token
 
+    def index
+        @orders = Order.all
+    end
+
     def show
         @order = Order.find(params[:id])
         render json: @order
@@ -23,11 +27,8 @@ class Api::OrdersController < ApplicationController
         @order.destroy
         render json: @orders
     end 
-
-
     private
     
-
     def order_params
       params.require(:order).permit(:address, :price, :quantity, product_ids: [])
     end
