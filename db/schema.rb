@@ -61,6 +61,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_073334) do
     t.string "address"
     t.integer "quantity"
     t.integer "price"
+    t.text "card_number"
+    t.date "expiry"
+    t.integer "csv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

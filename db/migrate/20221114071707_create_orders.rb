@@ -4,6 +4,9 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.string :address
       t.integer :quantity
       t.integer :price
+      t.text :card_number
+      t.date  :expiry
+      t.integer :csv
       
       t.timestamps
     end

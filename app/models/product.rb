@@ -3,7 +3,7 @@ class Product < ApplicationRecord
     has_many :categories,  through: :product_categories
 
     has_many :order_details
-    has_many :order,  through: :order_details
+    has_many :orders,  through: :order_details
     
     validates :title, presence: true
     validates :descripiton, presence: true
