@@ -1,7 +1,11 @@
 class Api::CategoriesController < ApplicationController
-    before_action :set_category, only: %i[show update destroy]
     def index
         @categories = Category.all
     end
     
+    def show
+        @category = Category.find(params[:id])
+        @category_products = @category.products
+        render json: @category_products
+    end 
 end

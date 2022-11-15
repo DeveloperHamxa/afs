@@ -8636,3 +8636,289 @@ Completed 200 OK in 420ms (Views: 1.7ms | ActiveRecord: 404.8ms | Allocations: 4
   [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("address", "quantity", "price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", "Lahore"], ["quantity", 3], ["price", 300], ["card_number", "12345789123454"], ["expiry", "2024-08-20"], ["csv", 123], ["created_at", "2022-11-15 08:00:41.742703"], ["updated_at", "2022-11-15 08:00:41.742703"]]
   [1m[36mOrderDetail Create (1.6ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["order_id", 5], ["product_id", 2], ["created_at", "2022-11-15 08:00:41.749027"], ["updated_at", "2022-11-15 08:00:41.749027"]]
   [1m[36mTRANSACTION (25.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (31.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 5]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 5]]
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 1]]
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 1]]
+Started POST "/api/products" for 127.0.0.1 at 2022-11-15 13:19:41 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Product 1", "descripiton"=>"testing the test product 2", "price"=>"300", "quantity"=>"7", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["1"]}}
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProduct Create (31.6ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Product 1"], ["descripiton", "testing the test product 2"], ["price", 300], ["quantity", 7], ["image_url", "https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], ["created_at", "2022-11-15 08:19:42.014802"], ["updated_at", "2022-11-15 08:19:42.014802"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProductCategory Create (1.8ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 1], ["product_id", 6], ["created_at", "2022-11-15 08:19:42.053453"], ["updated_at", "2022-11-15 08:19:42.053453"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.61ms)
+Completed 200 OK in 162ms (Views: 5.9ms | ActiveRecord: 73.7ms | Allocations: 36029)
+
+
+Started POST "/api/products" for 127.0.0.1 at 2022-11-15 13:19:56 +0500
+Processing by Api::ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Product 1", "descripiton"=>"testing the test product 2", "price"=>"300", "quantity"=>"7", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["9\n"]}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProduct Create (0.7ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Product 1"], ["descripiton", "testing the test product 2"], ["price", 300], ["quantity", 7], ["image_url", "https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], ["created_at", "2022-11-15 08:19:56.386400"], ["updated_at", "2022-11-15 08:19:56.386400"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProductCategory Create (1.0ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 9], ["product_id", 7], ["created_at", "2022-11-15 08:19:56.392889"], ["updated_at", "2022-11-15 08:19:56.392889"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (29.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.54ms)
+Completed 200 OK in 49ms (Views: 1.5ms | ActiveRecord: 31.9ms | Allocations: 4933)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-15 13:20:00 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 327)
+  Rendered layout layouts/application.html.erb (Duration: 1195.0ms | Allocations: 34802)
+Completed 200 OK in 1202ms (Views: 1201.6ms | ActiveRecord: 0.0ms | Allocations: 36136)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2022-11-15 13:20:04 +0500
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (Duration: 18.2ms | Allocations: 1209)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.4ms | Allocations: 2235)
+
+
+Started GET "/api/products" for 127.0.0.1 at 2022-11-15 13:20:07 +0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  Rendered api/products/index.json.jbuilder (Duration: 42.8ms | Allocations: 10398)
+Completed 200 OK in 46ms (Views: 39.4ms | ActiveRecord: 6.1ms | Allocations: 11182)
+
+
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 7]]
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+Started GET "/api/categories/9" for 127.0.0.1 at 2022-11-15 13:23:16 +0500
+Processing by Api::CategoriesController#show as JSON
+  Parameters: {"id"=>"9"}
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms | Allocations: 6100)
+
+
+  
+NoMethodError (undefined method `set_category' for #<Api::CategoriesController:0x0000000000fb68>
+
+              target.send(@method_name, &block)
+                    ^^^^^
+Did you mean?  set_trace_func):
+  
+activesupport (7.0.4) lib/active_support/callbacks.rb:400:in `block in make_lambda'
+activesupport (7.0.4) lib/active_support/callbacks.rb:180:in `block (2 levels) in halting_and_conditional'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:181:in `block in halting_and_conditional'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `block in invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `each'
+activesupport (7.0.4) lib/active_support/callbacks.rb:595:in `invoke_before'
+activesupport (7.0.4) lib/active_support/callbacks.rb:116:in `block in run_callbacks'
+actiontext (7.0.4) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.4) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.4) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.4) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.4) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.4) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.4) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.4) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.4) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.4) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.4) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.4) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.4) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.4) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.4) lib/action_dispatch/routing/route_set.rb:852:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.4) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/cookies.rb:696:in `call'
+activerecord (7.0.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.4) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.4) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.4) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.5) lib/puma/configuration.rb:252:in `call'
+puma (5.6.5) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.5) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.5) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.5) lib/puma/server.rb:443:in `process_client'
+puma (5.6.5) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/api/categories/9" for 127.0.0.1 at 2022-11-15 13:23:36 +0500
+Processing by Api::CategoriesController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/categories_controller.rb:7:in `show'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+  ↳ app/controllers/api/categories_controller.rb:9:in `show'
+No serializer found for resource: #<Product id: 7, title: "Product 1", descripiton: "testing the test product 2", price: 300, quantity: 7, image_url: "https://images.pexels.com/photos/14176536/pexels-p...", created_at: "2022-11-15 08:19:56.386400000 +0000", updated_at: "2022-11-15 08:19:56.386400000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Associations_CollectionProxy (0.34ms)
+Completed 200 OK in 75ms (Views: 37.0ms | ActiveRecord: 14.1ms | Allocations: 20908)
+
+
+Started POST "/api/products" for 127.0.0.1 at 2022-11-15 13:23:44 +0500
+Processing by Api::ProductsController#create as JSON
+  Parameters: {"product"=>{"title"=>"Product 2", "descripiton"=>"testing the test product 2", "price"=>"300", "quantity"=>"7", "image_url"=>"https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "category_ids"=>["9\n"]}}
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1[0m  [["id", 9]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProduct Create (0.5ms)[0m  [1m[32mINSERT INTO "products" ("title", "descripiton", "price", "quantity", "image_url", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Product 2"], ["descripiton", "testing the test product 2"], ["price", 300], ["quantity", 7], ["image_url", "https://images.pexels.com/photos/14176536/pexels-photo-14176536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"], ["created_at", "2022-11-15 08:23:44.997955"], ["updated_at", "2022-11-15 08:23:44.997955"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mProductCategory Create (0.6ms)[0m  [1m[32mINSERT INTO "product_categories" ("category_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["category_id", 9], ["product_id", 8], ["created_at", "2022-11-15 08:23:45.002478"], ["updated_at", "2022-11-15 08:23:45.002478"]]
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (25.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/products_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Product (0.34ms)
+Completed 200 OK in 60ms (Views: 1.0ms | ActiveRecord: 29.3ms | Allocations: 7792)
+
+
+Started GET "/api/categories/9" for 127.0.0.1 at 2022-11-15 13:23:48 +0500
+Processing by Api::CategoriesController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/categories_controller.rb:7:in `show'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+  ↳ app/controllers/api/categories_controller.rb:9:in `show'
+No serializer found for resource: #<Product id: 7, title: "Product 1", descripiton: "testing the test product 2", price: 300, quantity: 7, image_url: "https://images.pexels.com/photos/14176536/pexels-p...", created_at: "2022-11-15 08:19:56.386400000 +0000", updated_at: "2022-11-15 08:19:56.386400000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Associations_CollectionProxy (0.67ms)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 1.3ms | Allocations: 1979)
+
+
+Started GET "/api/categories" for 127.0.0.1 at 2022-11-15 13:24:33 +0500
+Processing by Api::CategoriesController#index as JSON
+  Rendering api/categories/index.json.jbuilder
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/api/categories/index.json.jbuilder:1
+  Rendered api/categories/index.json.jbuilder (Duration: 4.3ms | Allocations: 1072)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.7ms | Allocations: 1676)
+
+
+Started GET "/api/api/categories/9" for 127.0.0.1 at 2022-11-15 13:25:32 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/api/categories/9"):
+  
+Started GET "/api/categories/9" for 127.0.0.1 at 2022-11-15 13:25:41 +0500
+Processing by Api::CategoriesController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/categories_controller.rb:7:in `show'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+  ↳ app/controllers/api/categories_controller.rb:9:in `show'
+No serializer found for resource: #<Product id: 7, title: "Product 1", descripiton: "testing the test product 2", price: 300, quantity: 7, image_url: "https://images.pexels.com/photos/14176536/pexels-p...", created_at: "2022-11-15 08:19:56.386400000 +0000", updated_at: "2022-11-15 08:19:56.386400000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Associations_CollectionProxy (0.57ms)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 1.6ms | Allocations: 2205)
+
+
+Started GET "/api/categories/9" for 127.0.0.1 at 2022-11-15 13:25:57 +0500
+Processing by Api::CategoriesController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/categories_controller.rb:7:in `show'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+  ↳ app/controllers/api/categories_controller.rb:9:in `show'
+No serializer found for resource: #<Product id: 7, title: "Product 1", descripiton: "testing the test product 2", price: 300, quantity: 7, image_url: "https://images.pexels.com/photos/14176536/pexels-p...", created_at: "2022-11-15 08:19:56.386400000 +0000", updated_at: "2022-11-15 08:19:56.386400000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Associations_CollectionProxy (0.39ms)
+Completed 200 OK in 7ms (Views: 3.6ms | ActiveRecord: 1.1ms | Allocations: 1957)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-15 13:27:06 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"address"=>"Islamabad", "quantity"=>"4", "price"=>"300", "product_ids"=>["3"], "card_number"=>"1234578912345122", "csv"=>"123", "date"=>"12/11/2024"}}
+[31mUnpermitted parameter: :date. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc75aa4f1e0>, params: {"order"=>{"address"=>"Islamabad", "quantity"=>"4", "price"=>"300", "product_ids"=>["3"], "card_number"=>"1234578912345122", "csv"=>"123", "date"=>"12/11/2024"}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("address", "quantity", "price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", "Islamabad"], ["quantity", 4], ["price", 300], ["card_number", "1234578912345122"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-15 08:27:07.048086"], ["updated_at", "2022-11-15 08:27:07.048086"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["order_id", 6], ["product_id", 3], ["created_at", "2022-11-15 08:27:07.065637"], ["updated_at", "2022-11-15 08:27:07.065637"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (16.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.35ms)
+Completed 200 OK in 110ms (Views: 2.4ms | ActiveRecord: 28.8ms | Allocations: 18889)
+
+
