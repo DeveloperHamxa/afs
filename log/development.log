@@ -8922,3 +8922,284 @@ Processing by Api::OrdersController#create as JSON
 Completed 200 OK in 110ms (Views: 2.4ms | ActiveRecord: 28.8ms | Allocations: 18889)
 
 
+Started GET "/routes" for 127.0.0.1 at 2022-11-15 15:05:32 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/" for 127.0.0.1 at 2022-11-16 11:04:02 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 332)
+  Rendered layout layouts/application.html.erb (Duration: 84.8ms | Allocations: 35107)
+Completed 200 OK in 126ms (Views: 88.4ms | ActiveRecord: 0.0ms | Allocations: 37700)
+
+
+Started GET "/routes" for 127.0.0.1 at 2022-11-16 11:04:06 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY "categories"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" INNER JOIN "product_categories" ON "products"."id" = "product_categories"."product_id" WHERE "product_categories"."category_id" = $1[0m  [["category_id", 9]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:36:45 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"address"=>"Islamabad", "quantity"=>"4", "price"=>"300", "product_ids"=>["3"], "card_number"=>"1234578912345122", "csv"=>"123"}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("address", "quantity", "price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["address", "Islamabad"], ["quantity", 4], ["price", 300], ["card_number", "1234578912345122"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-16 08:36:46.451956"], ["updated_at", "2022-11-16 08:36:46.451956"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["order_id", 7], ["product_id", 3], ["created_at", "2022-11-16 08:36:46.459410"], ["updated_at", "2022-11-16 08:36:46.459410"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.41ms)
+Completed 200 OK in 253ms (Views: 5.1ms | ActiveRecord: 35.1ms | Allocations: 38978)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrderDetails (20221114073334)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.4ms)[0m  [1m[35mDROP TABLE "order_details"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221114073334"]]
+  [1m[36mTRANSACTION (20.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20221114071707)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.6ms)[0m  [1m[35mDROP TABLE "orders"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.6ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221114071707"]]
+  [1m[36mTRANSACTION (48.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20221114071707)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (143.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" integer, "address" character varying, "quantity" integer, "price" integer, "card_number" text, "expiry" date, "csv" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114071707"]]
+  [1m[36mTRANSACTION (29.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderDetails (20221114073334)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (96.4ms)[0m  [1m[35mCREATE TABLE "order_details" ("id" bigserial primary key, "order_id" bigint, "product_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e5976611fd"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_4f2ac9473b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (66.8ms)[0m  [1m[35mCREATE INDEX "index_order_details_on_order_id" ON "order_details" ("order_id")[0m
+  [1m[35m (98.0ms)[0m  [1m[35mCREATE INDEX "index_order_details_on_product_id" ON "order_details" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114073334"]]
+  [1m[36mTRANSACTION (19.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:40:03 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"address"=>"Islamabad", "quantity"=>"4", "price"=>"300", "product_ids"=>["3"], "card_number"=>"1234578912345122", "first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513"}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.32ms)
+Completed 200 OK in 88ms (Views: 4.0ms | ActiveRecord: 14.5ms | Allocations: 36492)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:41:09 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"address"=>"Islamabad", "quantity"=>"4", "price"=>"300", "product_ids"=>["3"], "card_number"=>"1234578912345122", "first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513"}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.23ms)
+Completed 200 OK in 7ms (Views: 0.9ms | ActiveRecord: 0.5ms | Allocations: 2532)
+
+
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Create (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "quantity", "price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "Naveed"], ["phone_number", 333], ["address", "Lahore"], ["quantity", 4], ["price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-16 08:51:05.598393"], ["updated_at", "2022-11-16 08:51:05.598393"]]
+  [1m[36mOrderDetail Create (2.5ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["order_id", 1], ["product_id", 3], ["created_at", "2022-11-16 08:51:05.604314"], ["updated_at", "2022-11-16 08:51:05.604314"]]
+  [1m[36mTRANSACTION (48.8ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:52:32 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.19ms)
+Completed 200 OK in 50ms (Views: 0.8ms | ActiveRecord: 9.1ms | Allocations: 4210)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:52:54 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.7ms | Allocations: 4854)
+
+
+  
+ActiveModel::RangeError (3323214513 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:55:16 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 16.4ms | Allocations: 23608)
+
+
+  
+NoMethodError (undefined method `phone' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: 3323214513, address: "Lahore", quantity: 4, price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (41.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (1.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (105.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (1.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (47.7ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:56:03 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (1.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.8ms | Allocations: 8313)
+
+
+  
+NoMethodError (undefined method `phone' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: 3323214513, address: "Lahore", quantity: 4, price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:56:51 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"03323214513", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.26ms)
+Completed 200 OK in 65ms (Views: 11.0ms | ActiveRecord: 13.0ms | Allocations: 23144)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:57:09 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"033232145132", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 1.1ms | Allocations: 3625)
+
+
+  
+ActiveModel::RangeError (33232145132 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 13:57:38 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.9ms | Allocations: 3454)
+
+
+  
+ActiveModel::RangeError (33232145132 is out of range for ActiveModel::Type::Integer with limit 4 bytes):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrderDetails (20221114073334)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "order_details"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221114073334"]]
+  [1m[36mTRANSACTION (25.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20221114071707)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE "orders"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20221114071707"]]
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20221114071707)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateOrders (20221114071707)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (160.7ms)[0m  [1m[35mCREATE TABLE "orders" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_number" character varying, "address" character varying, "quantity" integer, "price" integer, "card_number" text, "expiry" date, "csv" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114071707"]]
+  [1m[36mTRANSACTION (21.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateOrderDetails (20221114073334)
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (34.7ms)[0m  [1m[35mCREATE TABLE "order_details" ("id" bigserial primary key, "order_id" bigint, "product_id" bigint, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_e5976611fd"
+FOREIGN KEY ("order_id")
+  REFERENCES "orders" ("id")
+, CONSTRAINT "fk_rails_4f2ac9473b"
+FOREIGN KEY ("product_id")
+  REFERENCES "products" ("id")
+)[0m
+  [1m[35m (94.5ms)[0m  [1m[35mCREATE INDEX "index_order_details_on_order_id" ON "order_details" ("order_id")[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE INDEX "index_order_details_on_product_id" ON "order_details" ("product_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221114073334"]]
+  [1m[36mTRANSACTION (20.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-16 14:00:23 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "price"=>"300", "quantity"=>"4", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "quantity", "price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["quantity", 4], ["price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-16 09:00:23.390691"], ["updated_at", "2022-11-16 09:00:23.390691"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.7ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["order_id", 1], ["product_id", 1], ["created_at", "2022-11-16 09:00:23.396952"], ["updated_at", "2022-11-16 09:00:23.396952"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (27.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.71ms)
+Completed 200 OK in 132ms (Views: 7.2ms | ActiveRecord: 44.9ms | Allocations: 40653)
+
+

@@ -58,6 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_14_073334) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
     t.string "address"
     t.integer "quantity"
     t.integer "price"

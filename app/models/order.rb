@@ -5,6 +5,7 @@ class Order < ApplicationRecord
     validates :address, presence: true
     validates :quantity, presence: true
     validates :price, presence: true
+    validates :phone_number, length: { is: 11 }
     validates :product_ids, presence: true
     validates :card_number, length: { in: 14..16 }
     validates :csv, length: { is: 3 }
