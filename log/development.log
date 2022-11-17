@@ -10866,3 +10866,5 @@ Processing by Api::OrdersController#index as JSON
 Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 2.7ms | Allocations: 2871)
 
 
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]

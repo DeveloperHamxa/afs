@@ -10,6 +10,7 @@ class Api::ProductsController < ApplicationController
         render json: @product
     end 
 
+
     def create
         @product = Product.create(product_params)
         render json: @product
