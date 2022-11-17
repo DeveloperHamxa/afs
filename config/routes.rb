@@ -7,6 +7,5 @@ Rails.application.routes.draw do
     resources :categories, defaults: {format: :json},  only: [:index, :show]
     resources :products, defaults: {format: :json},  only: [:index, :create, :show, :destroy]
     resources :orders, defaults: {format: :json},  only: [:index, :create, :show, :destroy]
+    end
   end
-  
-end

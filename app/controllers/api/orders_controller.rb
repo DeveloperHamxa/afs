@@ -10,7 +10,13 @@ class Api::OrdersController < ApplicationController
     end 
 
     def create
-        @order = Order.create(order_params)
+        @order = Order.new(order_params)
+        if @order.save
+            # render json: @order
+            render json: {order: @order, message: "Order is created"}, status: :ok
+        else
+            render :json => { :message => "Order is not created" }, :status => 420
+        end
     end 
 
     def update

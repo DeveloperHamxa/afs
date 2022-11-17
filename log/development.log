@@ -10868,3 +10868,540 @@ Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 2.7ms | Allocations: 287
 
   [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for inspect */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM()[0m
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (2.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM()[0m
+  [1m[36mCategory Load (78.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM(6)[0m
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for inspect */ ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" /* loading for inspect */ ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategory Load (1.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" ORDER BY RANDOM() LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/routes" for 127.0.0.1 at 2022-11-17 15:48:23 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/api/products" for 127.0.0.1 at 2022-11-17 15:51:49 +0500
+Processing by Api::ProductsController#index as JSON
+  Rendering api/products/index.json.jbuilder
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/index.json.jbuilder:1
+  [1m[36mCategory Load (2.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 8]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 9]]
+  ↳ app/views/api/products/index.json.jbuilder:9
+  Rendered api/products/index.json.jbuilder (Duration: 132.3ms | Allocations: 28076)
+Completed 200 OK in 168ms (Views: 112.8ms | ActiveRecord: 22.6ms | Allocations: 33755)
+
+
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:51:51 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 224.1ms | Allocations: 5430)
+Completed 500 Internal Server Error in 227ms (ActiveRecord: 0.0ms | Allocations: 5881)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x0000000000f988>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:52:09 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 17.5ms | Allocations: 4610)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 5551)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x0000000000fca8>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @product do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @product do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:52:46 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 8.4ms | Allocations: 4555)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 8080)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x00000000014230>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:53:07 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 8.5ms | Allocations: 4454)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms | Allocations: 7584)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x00000000018790>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:53:09 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 22.7ms | Allocations: 4462)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms | Allocations: 4760)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x00000000018a60>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:53:18 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 15.4ms | Allocations: 5838)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 12584)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x0000000000b248>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured.json" for 127.0.0.1 at 2022-11-17 15:53:21 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 23.6ms | Allocations: 4492)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 4819)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x0000000000b540>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:54:25 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.builder
+  Rendered api/products/featured.json.builder (Duration: 12.6ms | Allocations: 4464)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms | Allocations: 4748)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `json' for #<ActionView::Base:0x0000000000b888>
+
+            @virtual_path = "api/products/featured";;xml = ::Builder::XmlMarkup.new(:indent => 2);self.output_buffer = xml.target!;json.array! @products do |product|
+                                                                                                                                   ^^^^
+Did you mean?  JSON):
+    1: json.array! @products do |product|
+    2:     json.title product.title
+    3:     json.descripiton product.descripiton
+    4:     json.price product.price
+  
+app/views/api/products/featured.json.builder:1
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-17 15:54:47 +0500
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.jbuilder
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/api/products/featured.json.jbuilder:1
+  [1m[36mCategory Load (1.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 1]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 2]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 3]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 4]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 5]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 6]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 7]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 8]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 9]]
+  ↳ app/views/api/products/featured.json.jbuilder:9
+  Rendered api/products/featured.json.jbuilder (Duration: 151.0ms | Allocations: 33869)
+Completed 200 OK in 162ms (Views: 136.8ms | ActiveRecord: 24.2ms | Allocations: 34862)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:31:45 +0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/orders"):
+  
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:32:54 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+...  format.json { @order, status: :created, notice: "Order was...
+...                        ^~~~~~~
+/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:14: syntax error, unexpected '}', expecting `end'
+...er was successfully created." }
+...                              ^
+):
+  
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected '}', expecting `end'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:33:24 +0500
+  
+SyntaxError (/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+...  format.json { @order, status: :created }
+...                        ^~~~~~~
+):
+  
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+app/controllers/api/orders_controller.rb:14: syntax error, unexpected label, expecting '='
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:34:52 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"2", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:34:52.800223"], ["updated_at", "2022-11-17 11:34:52.800223"]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mOrderDetail Create (1.5ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 30], ["product_id", 2], ["created_at", "2022-11-17 11:34:52.806309"], ["updated_at", "2022-11-17 11:34:52.806309"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (17.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.43ms)
+Completed 200 OK in 177ms (Views: 6.2ms | ActiveRecord: 36.1ms | Allocations: 40479)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:35:02 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mProduct Load (3.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.36ms)
+Completed 200 OK in 29ms (Views: 2.6ms | ActiveRecord: 4.1ms | Allocations: 3869)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:36:46 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.26ms)
+Completed 200 OK in 72ms (Views: 19.4ms | ActiveRecord: 12.8ms | Allocations: 22187)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:37:01 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:13:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.29ms)
+Completed 200 OK in 99ms (Views: 5.1ms | ActiveRecord: 17.6ms | Allocations: 34609)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:37:53 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 420  in 164ms (Views: 3.2ms | ActiveRecord: 17.9ms | Allocations: 33184)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:38:12 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:38:12.613919"], ["updated_at", "2022-11-17 11:38:12.613919"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.2ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 31], ["product_id", 1], ["created_at", "2022-11-17 11:38:12.619896"], ["updated_at", "2022-11-17 11:38:12.619896"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (54.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.68ms)
+Completed 200 OK in 92ms (Views: 4.0ms | ActiveRecord: 57.8ms | Allocations: 13194)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:44:09 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 420  in 87ms (Views: 2.8ms | ActiveRecord: 17.1ms | Allocations: 31992)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:44:52 +0500
+  
+SyntaxError (/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+...          render json: {@order, message: "Order created"}
+...                              ^
+/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+...rder, message: "Order created"}
+...                              ^
+):
+  
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:45:12 +0500
+  
+SyntaxError (/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+...          render json: {@order, message: "Order created"}
+...                              ^
+/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+...rder, message: "Order created"}
+...                              ^
+):
+  
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected ',', expecting =>
+app/controllers/api/orders_controller.rb:15: syntax error, unexpected '}', expecting `end'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:46:36 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:46:36.580536"], ["updated_at", "2022-11-17 11:46:36.580536"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.5ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 32], ["product_id", 1], ["created_at", "2022-11-17 11:46:36.585518"], ["updated_at", "2022-11-17 11:46:36.585518"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (20.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.36ms)
+Completed 200 OK in 110ms (Views: 12.4ms | ActiveRecord: 42.0ms | Allocations: 28220)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:46:55 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33\n", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.66ms)
+Completed 420  in 16ms (Views: 2.1ms | ActiveRecord: 1.4ms | Allocations: 4649)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:48:13 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"33\n", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 420  in 55ms (Views: 2.0ms | ActiveRecord: 13.7ms | Allocations: 19642)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:48:18 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:48:18.887134"], ["updated_at", "2022-11-17 11:48:18.887134"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.9ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 33], ["product_id", 1], ["created_at", "2022-11-17 11:48:18.891787"], ["updated_at", "2022-11-17 11:48:18.891787"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (61.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 64.3ms | Allocations: 7044)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/api/orders_controller.rb:15:in `format'
+app/controllers/api/orders_controller.rb:15:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:48:45 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:48:45.676997"], ["updated_at", "2022-11-17 11:48:45.676997"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.0ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 34], ["product_id", 1], ["created_at", "2022-11-17 11:48:45.681247"], ["updated_at", "2022-11-17 11:48:45.681247"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 78ms (ActiveRecord: 29.1ms | Allocations: 19754)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/api/orders_controller.rb:15:in `format'
+app/controllers/api/orders_controller.rb:15:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:51:47 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:51:47.387180"], ["updated_at", "2022-11-17 11:51:47.387180"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.9ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 35], ["product_id", 1], ["created_at", "2022-11-17 11:51:47.390685"], ["updated_at", "2022-11-17 11:51:47.390685"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (14.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 31.3ms | Allocations: 19753)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/api/orders_controller.rb:16:in `format'
+app/controllers/api/orders_controller.rb:16:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:52:32 +0500
+  
+SyntaxError (/home/hamza/work/ecommerce_project/app/controllers/api/orders_controller.rb:16: syntax error, unexpected '}', expecting =>
+...at.json { render json: {@order}, status: :created }
+...                              ^
+):
+  
+app/controllers/api/orders_controller.rb:16: syntax error, unexpected '}', expecting =>
+app/controllers/api/orders_controller.rb:16: syntax error, unexpected '}', expecting =>
+app/controllers/api/orders_controller.rb:16: syntax error, unexpected '}', expecting =>
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:54:05 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:54:05.965148"], ["updated_at", "2022-11-17 11:54:05.965148"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 36], ["product_id", 1], ["created_at", "2022-11-17 11:54:05.969430"], ["updated_at", "2022-11-17 11:54:05.969430"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (19.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.34ms)
+Completed 200 OK in 100ms (Views: 2.7ms | ActiveRecord: 37.8ms | Allocations: 23108)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 16:54:32 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 11:54:33.140151"], ["updated_at", "2022-11-17 11:54:33.140151"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 37], ["product_id", 1], ["created_at", "2022-11-17 11:54:33.143117"], ["updated_at", "2022-11-17 11:54:33.143117"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (98.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.37ms)
+Completed 200 OK in 177ms (Views: 2.6ms | ActiveRecord: 115.6ms | Allocations: 23008)
+
+
