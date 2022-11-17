@@ -10,7 +10,7 @@ class Api::OrdersController < ApplicationController
     end 
 
     def create
-        @order = Order.create!(order_params)
+        @order = Order.create(order_params)
     end 
 
     def update
