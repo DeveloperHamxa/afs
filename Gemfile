@@ -14,6 +14,8 @@ gem "pg", "~> 1.1"
 
 gem 'rack-cors'
 
+gem 'byebug', '~> 9.0', '>= 9.0.6'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

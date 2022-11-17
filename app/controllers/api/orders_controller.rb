@@ -7,12 +7,12 @@ class Api::OrdersController < ApplicationController
 
     def show
         @order = Order.find(params[:id])
-        render json: @order
     end 
 
     def create
-        @order = Order.create(order_params)
-        render json: @order
+        @order = Order.new(order_params)
+        @order.save
+        # @order = Order.create!(order_params)
     end 
 
     def update
@@ -30,6 +30,6 @@ class Api::OrdersController < ApplicationController
     private
     
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :phone_number, :address, :price, :quantity, :card_number, :csv, product_ids: [])
+      params.require(:order).permit(:first_name, :last_name, :phone_number, :address, :total_price,:card_number, :csv, order_details_attributes: [ :product_id, :price, :quantity])
     end
 end

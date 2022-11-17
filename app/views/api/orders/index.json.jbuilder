@@ -3,7 +3,8 @@ json.array! @orders do |order|
     json.last_name order.last_name
     json.phone_number order.phone_number
     json.address order.address
-    json.price order.price
-    json.quantity order.quantity
-    json.product order.products
+    json.card_number order.card_number
+    json.total_price order.total_price
+    json.order_details order.order_details
+
   end

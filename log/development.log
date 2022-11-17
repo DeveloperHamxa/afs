@@ -9424,3 +9424,1445 @@ Processing by Api::OrdersController#create as JSON
 Completed 200 OK in 73ms (Views: 1.0ms | ActiveRecord: 58.1ms | Allocations: 4840)
 
 
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" WHERE "orders"."address" = $1 LIMIT $2[0m  [["address", "Lahore"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixOrderTable (20221117072215)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (58.9ms)[0m  [1m[35mALTER TABLE "orders" RENAME COLUMN "price" TO "total_price"[0m
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE "orders" DROP COLUMN "quantity"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221117072215"]]
+  [1m[36mTRANSACTION (66.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to FixOrderDetailTable (20221117072405)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "order_details" ADD "price" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "order_details" ADD "quantity" integer[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20221117072405"]]
+  [1m[36mTRANSACTION (58.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:29:24 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+[31mUnpermitted parameter: :product_ids. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f2c63f72218>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 8.3ms | Allocations: 15354)
+
+
+  
+ActiveRecord::HasManyThroughOrderError (Cannot have a has_many :through association 'Order#products' which goes through 'Order#order_details' before the through association is defined.):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:30:57 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}}
+[31mUnpermitted parameter: :product_ids. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f2c62229b20>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["1"]}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.3ms)
+Completed 200 OK in 52ms (Views: 4.3ms | ActiveRecord: 12.8ms | Allocations: 21465)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:31:15 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.3ms)
+Completed 200 OK in 8ms (Views: 3.0ms | ActiveRecord: 0.0ms | Allocations: 1389)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:31:45 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"product_id"=>"1"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f2c620c3e48>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"product_id"=>"1"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.32ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 1327)
+
+
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Create (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:35:46.315005"], ["updated_at", "2022-11-17 07:35:46.315005"]]
+  [1m[36mOrderDetail Create (3.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 6], ["product_id", 3], ["created_at", "2022-11-17 07:35:46.320985"], ["updated_at", "2022-11-17 07:35:46.320985"], ["price", nil], ["quantity", nil]]
+  [1m[36mTRANSACTION (53.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrderDetail Load (1.1ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details"[0m
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Create (1.4ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:38:59.085436"], ["updated_at", "2022-11-17 07:38:59.085436"]]
+  [1m[36mOrderDetail Create (2.4ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 7], ["product_id", 3], ["created_at", "2022-11-17 07:38:59.093471"], ["updated_at", "2022-11-17 07:38:59.093471"], ["price", nil], ["quantity", nil]]
+  [1m[36mTRANSACTION (53.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details"[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:40:14 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"]}}
+[31mUnpermitted parameter: :product_ids. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f762fb50ae8>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"]}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.33ms)
+Completed 200 OK in 78ms (Views: 4.3ms | ActiveRecord: 18.5ms | Allocations: 29014)
+
+
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  [1m[36mProduct Load (1.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:41:58.692959"], ["updated_at", "2022-11-17 07:41:58.692959"]]
+  [1m[36mOrderDetail Create (1.0ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 8], ["product_id", 3], ["created_at", "2022-11-17 07:41:58.697134"], ["updated_at", "2022-11-17 07:41:58.697134"], ["price", nil], ["quantity", nil]]
+  [1m[36mOrderDetail Create (1.4ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 8], ["product_id", 4], ["created_at", "2022-11-17 07:41:58.700254"], ["updated_at", "2022-11-17 07:41:58.700254"], ["price", nil], ["quantity", nil]]
+  [1m[36mTRANSACTION (112.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (1.2ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:42:31 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"]}}
+[31mUnpermitted parameter: :product_ids. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f762e07bee8>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"]}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.23ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1530)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:42:56 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"]}}
+  [1m[36mProduct Load (0.9ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.2ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:42:57.127897"], ["updated_at", "2022-11-17 07:42:57.127897"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 9], ["product_id", 3], ["created_at", "2022-11-17 07:42:57.134116"], ["updated_at", "2022-11-17 07:42:57.134116"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (11.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.37ms)
+Completed 200 OK in 105ms (Views: 3.6ms | ActiveRecord: 36.3ms | Allocations: 32018)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:43:40 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"], "order_details"=>{"price"=>"100"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f762ddff5c0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3"], "order_details"=>{"price"=>"100"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:43:40.176383"], ["updated_at", "2022-11-17 07:43:40.176383"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.7ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 10], ["product_id", 3], ["created_at", "2022-11-17 07:43:40.181165"], ["updated_at", "2022-11-17 07:43:40.181165"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (61.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.74ms)
+Completed 200 OK in 101ms (Views: 1.9ms | ActiveRecord: 63.0ms | Allocations: 4895)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-17 12:44:31 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 8.9ms | Allocations: 326)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 35308)
+Completed 200 OK in 85ms (Views: 83.8ms | ActiveRecord: 0.0ms | Allocations: 36644)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:44:38 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/index.json.jbuilder (Duration: 30.1ms | Allocations: 7391)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.9ms | Allocations: 8328)
+
+
+  
+ActionView::Template::Error (undefined method `price' for #<Order id: 1, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: "2022-11-16 09:00:23.390691000 +0000", updated_at: "2022-11-16 09:00:23.390691000 +0000">):
+    3:     json.last_name order.last_name
+    4:     json.phone_number order.phone_number
+    5:     json.address order.address
+    6:     json.price order.price
+    7:     json.quantity order.quantity
+    8:     json.product order.order_details
+    9: 
+  
+app/views/api/orders/index.json.jbuilder:6
+app/views/api/orders/index.json.jbuilder:1
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:44:48 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  Rendered api/orders/index.json.jbuilder (Duration: 32.5ms | Allocations: 6856)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.7ms | Allocations: 7786)
+
+
+  
+ActionView::Template::Error (undefined method `quantity' for #<Order id: 1, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: "2022-11-16 09:00:23.390691000 +0000", updated_at: "2022-11-16 09:00:23.390691000 +0000">):
+    4:     json.phone_number order.phone_number
+    5:     json.address order.address
+    6:     json.price order.total_price
+    7:     json.quantity order.quantity
+    8:     json.product order.order_details
+    9: 
+   10:   end
+  
+app/views/api/orders/index.json.jbuilder:7
+app/views/api/orders/index.json.jbuilder:1
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:45:03 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (1.2ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (1.2ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (1.1ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  Rendered api/orders/index.json.jbuilder (Duration: 71.3ms | Allocations: 11198)
+Completed 200 OK in 77ms (Views: 65.6ms | ActiveRecord: 9.9ms | Allocations: 12145)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:45:49 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3", "4\n"], "order_details"=>{"price"=>"100"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f763095de38>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3", "4\n"], "order_details"=>{"price"=>"100"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:45:49.726001"], ["updated_at", "2022-11-17 07:45:49.726001"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 11], ["product_id", 3], ["created_at", "2022-11-17 07:45:49.730686"], ["updated_at", "2022-11-17 07:45:49.730686"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 11], ["product_id", 4], ["created_at", "2022-11-17 07:45:49.734226"], ["updated_at", "2022-11-17 07:45:49.734226"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (60.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.68ms)
+Completed 200 OK in 83ms (Views: 1.7ms | ActiveRecord: 63.5ms | Allocations: 6362)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:45:56 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  Rendered api/orders/index.json.jbuilder (Duration: 62.1ms | Allocations: 10892)
+Completed 200 OK in 65ms (Views: 54.8ms | ActiveRecord: 9.1ms | Allocations: 11190)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:49:25 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3", "4\n"], "order_details"=>{"price"=>"100"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f762dfcf7d8>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "product_ids"=>["3", "4\n"], "order_details"=>{"price"=>"100"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 07:49:25.975422"], ["updated_at", "2022-11-17 07:49:25.975422"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 12], ["product_id", 3], ["created_at", "2022-11-17 07:49:25.980138"], ["updated_at", "2022-11-17 07:49:25.980138"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.7ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 12], ["product_id", 4], ["created_at", "2022-11-17 07:49:25.983259"], ["updated_at", "2022-11-17 07:49:25.983259"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (38.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.34ms)
+Completed 200 OK in 119ms (Views: 3.1ms | ActiveRecord: 56.1ms | Allocations: 27559)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:49:34 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  Rendered api/orders/index.json.jbuilder (Duration: 54.5ms | Allocations: 13088)
+Completed 200 OK in 57ms (Views: 49.9ms | ActiveRecord: 6.7ms | Allocations: 13730)
+
+
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(2999380165363825425)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:51:19 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"product_ids"=>["2"]}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f91b40828f0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"product_ids"=>["2"]}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.3ms)
+Completed 200 OK in 73ms (Views: 4.3ms | ActiveRecord: 11.7ms | Allocations: 28978)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:51:32 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f91b4ff15e8>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.19ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 1550)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:53:26 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  Rendered api/orders/index.json.jbuilder (Duration: 85.5ms | Allocations: 23956)
+Completed 200 OK in 100ms (Views: 68.4ms | ActiveRecord: 21.6ms | Allocations: 28049)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:53:57 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:10
+  Rendered api/orders/index.json.jbuilder (Duration: 41.8ms | Allocations: 12227)
+Completed 200 OK in 46ms (Views: 39.2ms | ActiveRecord: 5.8ms | Allocations: 13221)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 12:54:30 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 89.5ms | Allocations: 12397)
+Completed 200 OK in 96ms (Views: 84.7ms | ActiveRecord: 9.6ms | Allocations: 13345)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:59:02 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f91b4080168>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 5.1ms | Allocations: 11546)
+
+
+  
+NoMethodError (undefined method `product_ids' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 12:59:36 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_ids"=>["3"], "quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f91973919f0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_ids"=>["3"], "quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 6754)
+
+
+  
+NoMethodError (undefined method `product_ids' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 13:01:22 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007f91974a0558>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms | Allocations: 6652)
+
+
+  
+NoMethodError (undefined method `product_ids' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 13:01:49 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc062e15b20>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 6.4ms | Allocations: 17763)
+
+
+  
+NoMethodError (undefined method `product_ids' for #<Order id: nil, first_name: "Muhammad", last_name: "Hannan", phone_number: "33232145132", address: "Lahore", total_price: 300, card_number: "123457891234578", expiry: nil, csv: 123, created_at: nil, updated_at: nil>):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 13:02:42 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc06118cee0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{"price"=>"23", "order_id"=>"13", "product_id"=>"3", "quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 08:02:42.638675"], ["updated_at", "2022-11-17 08:02:42.638675"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (13.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.4ms)
+Completed 200 OK in 48ms (Views: 4.7ms | ActiveRecord: 21.4ms | Allocations: 15155)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 13:02:50 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 13]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 76.5ms | Allocations: 23258)
+Completed 200 OK in 84ms (Views: 71.8ms | ActiveRecord: 10.2ms | Allocations: 24383)
+
+
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 13]]
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:12:16.047558"], ["updated_at", "2022-11-17 09:12:16.047558"]]
+  [1m[36mOrderDetail Create (1.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 14], ["product_id", 3], ["created_at", "2022-11-17 09:12:16.050994"], ["updated_at", "2022-11-17 09:12:16.050994"], ["price", 100], ["quantity", 3]]
+  [1m[36mTRANSACTION (19.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:12:32 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 1]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 2]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 3]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 4]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 5]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 6]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 7]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 8]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 9]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 10]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 11]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 12]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 13]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 14]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 109.1ms | Allocations: 17017)
+Completed 200 OK in 111ms (Views: 110.2ms | ActiveRecord: 19.2ms | Allocations: 17356)
+
+
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (2.4ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (25.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.9ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.8ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (8.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.9ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 7]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.9ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 8]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 9]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.8ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 10]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 11]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 12]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 13]]
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.8ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 14]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 15]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.7ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 16]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 1]]
+  [1m[36mTRANSACTION (59.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 2]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.4ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 3]]
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.4ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 4]]
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 5]]
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 6]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.6ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 7]]
+  [1m[36mTRANSACTION (16.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 8]]
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.2ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 9]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 10]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 11]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 12]]
+  [1m[36mTRANSACTION (8.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 13]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 14]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOrder Create (1.0ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:13:50.956131"], ["updated_at", "2022-11-17 09:13:50.956131"]]
+  [1m[36mOrderDetail Create (1.0ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 15], ["product_id", 3], ["created_at", "2022-11-17 09:13:50.960098"], ["updated_at", "2022-11-17 09:13:50.960098"], ["price", 100], ["quantity", 3]]
+  [1m[36mTRANSACTION (52.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:13:54 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 7.5ms | Allocations: 1574)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 1.1ms | Allocations: 1875)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:17:52 +0500
+Processing by Api::OrdersController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 533)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: order):
+  
+app/controllers/api/orders_controller.rb:33:in `order_params'
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:18:26 +0500
+Processing by Api::OrdersController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 489)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: order):
+  
+app/controllers/api/orders_controller.rb:33:in `order_params'
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:18:51 +0500
+Processing by Api::OrdersController#create as JSON
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 489)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: order):
+  
+app/controllers/api/orders_controller.rb:33:in `order_params'
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:20:37 +0500
+Processing by Api::OrdersController#create as JSON
+Completed 400 Bad Request in 1ms (Allocations: 489)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: order):
+  
+app/controllers/api/orders_controller.rb:33:in `order_params'
+app/controllers/api/orders_controller.rb:14:in `create'
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:20:59 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 62.0ms | Allocations: 4544)
+Completed 200 OK in 64ms (Views: 63.3ms | ActiveRecord: 11.5ms | Allocations: 4834)
+
+
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mOrder Create (1.1ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Hamza"], ["last_name", "naveed"], ["phone_number", "03114248836"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:21:59.030105"], ["updated_at", "2022-11-17 09:21:59.030105"]]
+  [1m[36mOrderDetail Create (1.1ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 16], ["product_id", 3], ["created_at", "2022-11-17 09:21:59.033666"], ["updated_at", "2022-11-17 09:21:59.033666"], ["price", 100], ["quantity", 3]]
+  [1m[36mTRANSACTION (54.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:22:06 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 11.9ms | Allocations: 2473)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 1.9ms | Allocations: 2765)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:23:56 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"23", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 802)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:24:16 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 742)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:24:23 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"quantity"=>"4"}}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 736)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:25:04 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"quantity"=>"4"}}}
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 8.0ms | Allocations: 6425)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:25:52 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":quantity"=>"4"}}}
+[31mUnpermitted parameter: ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc061056738>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:25:52.625228"], ["updated_at", "2022-11-17 09:25:52.625228"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.55ms)
+Completed 200 OK in 54ms (Views: 4.9ms | ActiveRecord: 40.7ms | Allocations: 8817)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:26:05 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 27.8ms | Allocations: 7304)
+Completed 200 OK in 31ms (Views: 22.3ms | ActiveRecord: 7.5ms | Allocations: 7937)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:26:10 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 20.8ms | Allocations: 3311)
+Completed 200 OK in 23ms (Views: 18.6ms | ActiveRecord: 3.4ms | Allocations: 3622)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:26:13 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (1.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 23.2ms | Allocations: 3313)
+Completed 200 OK in 26ms (Views: 21.0ms | ActiveRecord: 3.8ms | Allocations: 3605)
+
+
+Started GET "/" for 127.0.0.1 at 2022-11-17 14:26:18 +0500
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 123)
+  Rendered layout layouts/application.html.erb (Duration: 86.2ms | Allocations: 34358)
+Completed 200 OK in 96ms (Views: 95.0ms | ActiveRecord: 0.0ms | Allocations: 35123)
+
+
+Started GET "/orders/api" for 127.0.0.1 at 2022-11-17 14:26:24 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/orders/api"):
+  
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:26:30 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 12.5ms | Allocations: 3499)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 1.7ms | Allocations: 3834)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:26:58 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":quantity"=>"4"}}}
+[31mUnpermitted parameter: ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc0611fc290>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.9ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:26:58.259699"], ["updated_at", "2022-11-17 09:26:58.259699"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (39.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.29ms)
+Completed 200 OK in 58ms (Views: 0.8ms | ActiveRecord: 45.8ms | Allocations: 2628)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:27:02 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (2.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 28.6ms | Allocations: 4150)
+Completed 200 OK in 32ms (Views: 25.9ms | ActiveRecord: 4.8ms | Allocations: 4442)
+
+
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:27:43 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", "order_id"=>"18", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc06115a698>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", "order_id"=>"18", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 862)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:27:57 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", ":order_id"=>"18", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::order_id, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc0610b3780>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", ":order_id"=>"18", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:27:57.245259"], ["updated_at", "2022-11-17 09:27:57.245259"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (18.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.91ms)
+Completed 200 OK in 35ms (Views: 1.7ms | ActiveRecord: 19.8ms | Allocations: 2544)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:28:02 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 34.8ms | Allocations: 4989)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 4.6ms | Allocations: 5304)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:28:16 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc060ff7760>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"23", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (2.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:28:16.821084"], ["updated_at", "2022-11-17 09:28:16.821084"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (27.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.28ms)
+Completed 200 OK in 41ms (Views: 1.1ms | ActiveRecord: 30.1ms | Allocations: 2532)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:28:21 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (4.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 42.2ms | Allocations: 5828)
+Completed 200 OK in 45ms (Views: 35.5ms | ActiveRecord: 8.6ms | Allocations: 6120)
+
+
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (1.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:29:15 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fc060f47ef0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:29:15.066029"], ["updated_at", "2022-11-17 09:29:15.066029"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (48.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.59ms)
+Completed 200 OK in 61ms (Views: 1.9ms | ActiveRecord: 49.4ms | Allocations: 2538)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:29:32 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fe8488d4f90>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:29:33.154378"], ["updated_at", "2022-11-17 09:29:33.154378"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (14.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.68ms)
+Completed 200 OK in 70ms (Views: 5.5ms | ActiveRecord: 21.3ms | Allocations: 23449)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:29:42 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 21]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 54.6ms | Allocations: 15556)
+Completed 200 OK in 70ms (Views: 50.7ms | ActiveRecord: 10.3ms | Allocations: 17780)
+
+
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:31:29 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameter: :order_details. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fe83abd5428>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:31:29.711035"], ["updated_at", "2022-11-17 09:31:29.711035"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (41.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.29ms)
+Completed 200 OK in 50ms (Views: 0.9ms | ActiveRecord: 42.8ms | Allocations: 2608)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:31:37 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 21]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.8ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 23]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 33.8ms | Allocations: 8403)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 5.0ms | Allocations: 8723)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:32:11 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fe83ab406c0>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.7ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:32:11.919354"], ["updated_at", "2022-11-17 09:32:11.919354"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (52.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.65ms)
+Completed 200 OK in 63ms (Views: 1.4ms | ActiveRecord: 53.3ms | Allocations: 2542)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:32:19 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 21]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 23]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 24]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 33.6ms | Allocations: 9202)
+Completed 200 OK in 37ms (Views: 30.0ms | ActiveRecord: 5.9ms | Allocations: 9494)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:33:08 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}}
+[31mUnpermitted parameters: ::price, ::product_id, ::quantity. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fe83a9f81c8>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{":price"=>"100", ":product_id"=>"3", ":quantity"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:33:08.972760"], ["updated_at", "2022-11-17 09:33:08.972760"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.34ms)
+Completed 200 OK in 88ms (Views: 18.3ms | ActiveRecord: 45.6ms | Allocations: 14321)
+
+
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 25]]
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:37:39 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"100", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 4.0ms | Allocations: 6279)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:39:45 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"{price}"=>"100", "{product_id}"=>"3", "{quantity}"=>"4"}}}
+[31mUnpermitted parameters: :{price}, :{product_id}, :{quantity}. Context: { controller: Api::OrdersController, action: create, request: #<ActionDispatch::Request:0x00007fe84a682678>, params: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"{price}"=>"100", "{product_id}"=>"3", "{quantity}"=>"4"}}, "format"=>:json, "controller"=>"api/orders", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.8ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:39:45.473608"], ["updated_at", "2022-11-17 09:39:45.473608"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (56.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Order (0.36ms)
+Completed 200 OK in 76ms (Views: 4.8ms | ActiveRecord: 58.5ms | Allocations: 8865)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:39:51 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (1.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 21]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 23]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 24]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 25]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 26]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 59.0ms | Allocations: 14880)
+Completed 200 OK in 64ms (Views: 50.7ms | ActiveRecord: 12.3ms | Allocations: 15515)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:40:19 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"100", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 784)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:42:05 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"100", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 3353)
+
+
+  
+NameError (undefined local variable or method `byebug' for #<Api::OrdersController:0x00000000018718>
+
+        byebug
+        ^^^^^^):
+  
+app/controllers/api/orders_controller.rb:13:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:43:26 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"100", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 31054ms (ActiveRecord: 8.9ms | Allocations: 51728)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:14:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:48:19 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"price"=>"100", "product_id"=>"3", "quantity"=>"4"}}}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 4.9ms | Allocations: 6308)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/controllers/api/orders_controller.rb:13:in `create'
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:55:32 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"3", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:55:32.417193"], ["updated_at", "2022-11-17 09:55:32.417193"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.4ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 27], ["product_id", 3], ["created_at", "2022-11-17 09:55:32.423184"], ["updated_at", "2022-11-17 09:55:32.423184"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (13.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+No template found for Api::OrdersController#create, rendering head :no_content
+Completed 204 No Content in 118ms (ActiveRecord: 33.0ms | Allocations: 34385)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:55:42 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 15]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 16]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 17]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 18]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 19]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (1.0ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 20]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 21]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 22]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 23]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.3ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 24]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.4ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 25]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 26]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.5ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 27]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 47.0ms | Allocations: 13444)
+Completed 200 OK in 55ms (Views: 43.4ms | ActiveRecord: 7.6ms | Allocations: 15530)
+
+
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details"[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 17]]
+  [1m[36mTRANSACTION (17.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 18]]
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrderDetail Destroy (0.6ms)[0m  [1m[31mDELETE FROM "order_details" WHERE "order_details"."id" = $1[0m  [["id", 19]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 15]]
+  [1m[36mTRANSACTION (18.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 16]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 17]]
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 18]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.1ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 19]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.0ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 20]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 21]]
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 22]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 23]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.9ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 24]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (1.3ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 25]]
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.8ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 26]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mOrder Destroy (0.7ms)[0m  [1m[31mDELETE FROM "orders" WHERE "orders"."id" = $1[0m  [["id", 27]]
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:56:51 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"3", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:56:51.290077"], ["updated_at", "2022-11-17 09:56:51.290077"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.9ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 28], ["product_id", 3], ["created_at", "2022-11-17 09:56:51.293190"], ["updated_at", "2022-11-17 09:56:51.293190"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (20.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+No template found for Api::OrdersController#create, rendering head :no_content
+Completed 204 No Content in 96ms (ActiveRecord: 39.0ms | Allocations: 19657)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:56:53 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.7ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.6ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 28]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 16.2ms | Allocations: 2751)
+Completed 200 OK in 22ms (Views: 18.4ms | ActiveRecord: 2.3ms | Allocations: 3417)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 14:57:40 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hannan", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"3", "price"=>"100", "quantity"=>"4"}, "1"=>{"product_id"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (1.3ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hannan"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 09:57:40.702055"], ["updated_at", "2022-11-17 09:57:40.702055"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.2ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 29], ["product_id", 3], ["created_at", "2022-11-17 09:57:40.706802"], ["updated_at", "2022-11-17 09:57:40.706802"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (0.8ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 29], ["product_id", 4], ["created_at", "2022-11-17 09:57:40.711042"], ["updated_at", "2022-11-17 09:57:40.711042"], ["price", nil], ["quantity", nil]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (55.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+No template found for Api::OrdersController#create, rendering head :no_content
+Completed 204 No Content in 88ms (ActiveRecord: 60.1ms | Allocations: 7062)
+
+
+Started GET "/api/orders" for 127.0.0.1 at 2022-11-17 14:57:44 +0500
+Processing by Api::OrdersController#index as JSON
+  Rendering api/orders/index.json.jbuilder
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
+  ↳ app/views/api/orders/index.json.jbuilder:1
+  [1m[36mOrderDetail Load (0.7ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 28]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  [1m[36mOrderDetail Load (0.9ms)[0m  [1m[34mSELECT "order_details".* FROM "order_details" WHERE "order_details"."order_id" = $1[0m  [["order_id", 29]]
+  ↳ app/views/api/orders/index.json.jbuilder:11
+  Rendered api/orders/index.json.jbuilder (Duration: 18.2ms | Allocations: 2565)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 2.7ms | Allocations: 2871)
+
+
