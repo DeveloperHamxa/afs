@@ -5,10 +5,11 @@ class Order < ApplicationRecord
     # accepts_nested_attributes_for :products
     accepts_nested_attributes_for :order_details
 
-    # validates :address, presence: true
-    # validates :total_price, presence: true
+    validates :address, presence: true
+    validates :total_price, presence: true
+    validates :order_details, presence: true
     # validates :phone_number, length: { is: 11 }
-    # validates :card_number, lorder_detailsength: { in: 14..16 }
+    # validates :card_number, length: { in: 14..16 }
     # validates :csv, length: { is: 3 }
 
     # validate :expiration_date_cannot_be_in_the_past

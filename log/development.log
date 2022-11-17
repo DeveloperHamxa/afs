@@ -11405,3 +11405,46 @@ Processing by Api::OrdersController#create as JSON
 Completed 200 OK in 177ms (Views: 2.6ms | ActiveRecord: 115.6ms | Allocations: 23008)
 
 
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 17:15:41 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hamxa", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hamxa"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 12:15:42.217268"], ["updated_at", "2022-11-17 12:15:42.217268"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.3ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 38], ["product_id", 1], ["created_at", "2022-11-17 12:15:42.221350"], ["updated_at", "2022-11-17 12:15:42.221350"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (18.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 200 OK in 172ms (Views: 3.4ms | ActiveRecord: 38.5ms | Allocations: 37844)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 17:16:48 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hamxa", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123", "order_details_attributes"=>{"0"=>{"product_id"=>"1", "price"=>"100", "quantity"=>"4"}}}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrder Create (0.8ms)[0m  [1m[32mINSERT INTO "orders" ("first_name", "last_name", "phone_number", "address", "total_price", "card_number", "expiry", "csv", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Muhammad"], ["last_name", "Hamxa"], ["phone_number", "33232145132"], ["address", "Lahore"], ["total_price", 300], ["card_number", "123457891234578"], ["expiry", nil], ["csv", 123], ["created_at", "2022-11-17 12:16:49.037418"], ["updated_at", "2022-11-17 12:16:49.037418"]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mOrderDetail Create (1.2ms)[0m  [1m[32mINSERT INTO "order_details" ("order_id", "product_id", "created_at", "updated_at", "price", "quantity") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["order_id", 39], ["product_id", 1], ["created_at", "2022-11-17 12:16:49.041528"], ["updated_at", "2022-11-17 12:16:49.041528"], ["price", 100], ["quantity", 4]]
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (14.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/orders_controller.rb:14:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 118ms (Views: 3.1ms | ActiveRecord: 33.5ms | Allocations: 38104)
+
+
+Started POST "/api/orders" for 127.0.0.1 at 2022-11-17 17:17:08 +0500
+Processing by Api::OrdersController#create as JSON
+  Parameters: {"order"=>{"first_name"=>"Muhammad", "last_name"=>"Hamxa", "phone_number"=>"33232145132", "address"=>"Lahore", "total_price"=>"300", "card_number"=>"123457891234578", "csv"=>"123"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 420  in 6ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 1054)
+
+

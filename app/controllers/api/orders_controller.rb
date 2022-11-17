@@ -13,7 +13,7 @@ class Api::OrdersController < ApplicationController
         @order = Order.new(order_params)
         if @order.save
             # render json: @order
-            render json: {order: @order, message: "Order is created"}, status: :ok
+            render json: { message: "Order is created"}, status: :ok
         else
             render :json => { :message => "Order is not created" }, :status => 420
         end
@@ -34,6 +34,6 @@ class Api::OrdersController < ApplicationController
     private
     
     def order_params
-      params.require(:order).permit(:first_name, :last_name, :phone_number, :address, :total_price,:card_number, :csv, order_details_attributes: [ :product_id, :price, :quantity])
+      params.require(:order).permit(:first_name, :last_name, :phone_number, :address, :total_price,:card_number, :csv, order_details_attributes: [ :order_id, :product_id, :price, :quantity])
     end
 end
