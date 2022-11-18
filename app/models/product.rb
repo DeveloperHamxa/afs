@@ -6,7 +6,6 @@ class Product < ApplicationRecord
     has_many :orders,  through: :order_details
     
     validates :title, presence: true
-    validates :descripiton, presence: true
     validates :price, presence: true
     validates :quantity, presence: true
     validates :image_url, presence: true

@@ -11,7 +11,7 @@ class Api::ProductsController < ApplicationController
     end 
 
     def featured
-        @products = Product.all
+        @products = Product.where("featured_product = 't'").limit(6)
     end
 
     def create
