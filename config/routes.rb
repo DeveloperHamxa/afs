@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   root "home#index"
   namespace :api do
     resources :categories, defaults: {format: :json},  only: [:index, :show]
+    resources :orders, defaults: {format: :json},  only: [:index, :create, :show, :destroy]
     resources :products, defaults: {format: :json},  only: [:index, :create, :show, :destroy] do
       collection do
         get :featured
       end
     end
     end
-    resources :orders, defaults: {format: :json},  only: [:index, :create, :show, :destroy]
   end
