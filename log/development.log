@@ -12714,3 +12714,15 @@ Processing by Api::OrdersController#index as JSON
 Completed 200 OK in 29ms (Views: 8.3ms | ActiveRecord: 1.2ms | Allocations: 5575)
 
 
+Started GET "/api/products/featured" for 127.0.0.1 at 2022-11-18 12:33:27 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::ProductsController#featured as JSON
+  Rendering api/products/featured.json.jbuilder
+  [1m[36mProduct Load (1.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE (featured_product = 't') LIMIT $1[0m  [["LIMIT", 6]]
+  ↳ app/views/api/products/featured.json.jbuilder:1
+  [1m[36mCategory Load (1.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" INNER JOIN "product_categories" ON "categories"."id" = "product_categories"."category_id" WHERE "product_categories"."product_id" = $1[0m  [["product_id", 37]]
+  ↳ app/views/api/products/featured.json.jbuilder:10
+  Rendered api/products/featured.json.jbuilder (Duration: 68.1ms | Allocations: 20898)
+Completed 200 OK in 86ms (Views: 54.3ms | ActiveRecord: 17.3ms | Allocations: 27685)
+
+
