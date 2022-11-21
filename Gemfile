@@ -16,6 +16,12 @@ gem 'rack-cors'
 
 gem 'byebug', '~> 9.0', '>= 9.0.6'
 
+gem 'devise'
+
+gem 'doorkeeper', '~> 5.4.0'
+
+
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
