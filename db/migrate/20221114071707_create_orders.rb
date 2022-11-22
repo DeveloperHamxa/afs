@@ -10,8 +10,8 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.text :card_number
       t.date  :expiry
       t.integer :csv
-      
       t.timestamps
     end
   end
 end
+

@@ -15,6 +15,10 @@ Doorkeeper.configure do
 
   resource_owner_from_credentials do |_routes|
     User.authenticate(params[:email], params[:password])
+    request.env["devise.allow_params_authentication"] = true
+    user = request.env["warden"].authenticate!(:scope => :user)
+    env['warden'].logout
+    user
   end
 
   grant_flows %w[password]

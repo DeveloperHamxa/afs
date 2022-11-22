@@ -13443,3 +13443,146 @@ Processing by HomeController#index as */*
 Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.0ms | Allocations: 3850)
 
 
+Started GET "/routes" for 127.0.0.1 at 2022-11-21 14:40:16 +0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/routes" for 127.0.0.1 at 2022-11-21 14:40:23 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/api/users/sign_up" for 127.0.0.1 at 2022-11-21 14:40:55 +0500
+  
+ActionController::RoutingError (uninitialized constant Api::RegistrationsController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/api/users/sign_up" for 127.0.0.1 at 2022-11-21 14:41:34 +0500
+  
+ActionController::RoutingError (uninitialized constant Api::RegistrationsController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/api/users/sign_up" for 127.0.0.1 at 2022-11-21 14:41:35 +0500
+  
+ActionController::RoutingError (uninitialized constant Api::RegistrationsController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/api/users/sign_up" for 127.0.0.1 at 2022-11-21 14:41:36 +0500
+  
+ActionController::RoutingError (uninitialized constant Api::RegistrationsController
+
+      Object.const_get(camel_cased_word)
+            ^^^^^^^^^^
+
+            raise MissingController.new(error.message, error.name)
+            ^^^^^):
+  
+Started GET "/users/sign_up" for 127.0.0.1 at 2022-11-21 14:42:15 +0500
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /usr/share/rvm/gems/ruby-3.1.2/gems/devise-4.8.1/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /usr/share/rvm/gems/ruby-3.1.2/gems/devise-4.8.1/app/views/devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 251)
+  Rendered /usr/share/rvm/gems/ruby-3.1.2/gems/devise-4.8.1/app/views/devise/shared/_links.html.erb (Duration: 2.1ms | Allocations: 618)
+  Rendered /usr/share/rvm/gems/ruby-3.1.2/gems/devise-4.8.1/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 5530)
+  Rendered layout layouts/application.html.erb (Duration: 121.4ms | Allocations: 44275)
+Completed 200 OK in 165ms (Views: 124.4ms | ActiveRecord: 11.7ms | Allocations: 52811)
+
+
+Started GET "/rpoutes" for 127.0.0.1 at 2022-11-21 14:46:37 +0500
+  
+ActionController::RoutingError (No route matches [GET] "/rpoutes"):
+  
+Started POST "//oauth/token" for 127.0.0.1 at 2022-11-21 14:49:19 +0500
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"email"=>"iamabdalhannan1@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iamabdalhannan1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7:in `authenticate'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessToken Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "2ZwCVfAyNvBIES3kv5PkH9V8u4Vvs0giRuwcjlofRBw"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", "wg32ZgOWTSIIrdElwX2qsJVNxan6M2d1KsM32fH5dTQ"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Create (0.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "refresh_token", "expires_in", "revoked_at", "created_at", "scopes", "previous_refresh_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", nil], ["token", "2ZwCVfAyNvBIES3kv5PkH9V8u4Vvs0giRuwcjlofRBw"], ["refresh_token", "wg32ZgOWTSIIrdElwX2qsJVNxan6M2d1KsM32fH5dTQ"], ["expires_in", 7200], ["revoked_at", nil], ["created_at", "2022-11-21 09:49:20.390902"], ["scopes", ""], ["previous_refresh_token", ""]]
+  [1m[36mTRANSACTION (69.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 563ms (Views: 5.8ms | ActiveRecord: 96.3ms | Allocations: 27611)
+
+
+Started POST "/oauth/token" for 127.0.0.1 at 2022-11-21 14:49:25 +0500
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"email"=>"iamabdalhannan1@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iamabdalhannan1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7:in `authenticate'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessToken Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "luHkc7J9eQR26Ae2W3_Kz9TclA2Iup7T5G2_0n3OFE0"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", "hrhBfqBgD0yLws4U7kHMGCoaHWG6MVhkQHmVZhb5-OQ"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Create (0.8ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "refresh_token", "expires_in", "revoked_at", "created_at", "scopes", "previous_refresh_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", nil], ["token", "luHkc7J9eQR26Ae2W3_Kz9TclA2Iup7T5G2_0n3OFE0"], ["refresh_token", "hrhBfqBgD0yLws4U7kHMGCoaHWG6MVhkQHmVZhb5-OQ"], ["expires_in", 7200], ["revoked_at", nil], ["created_at", "2022-11-21 09:49:25.429186"], ["scopes", ""], ["previous_refresh_token", ""]]
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 392ms (Views: 1.1ms | ActiveRecord: 21.1ms | Allocations: 7029)
+
+
+Started POST "/oauth/revoke" for 127.0.0.1 at 2022-11-21 14:49:51 +0500
+Processing by Doorkeeper::TokensController#revoke as */*
+  Parameters: {"token"=>"[FILTERED]"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 403 Forbidden in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 446)
+
+
+  [1m[36mProduct Load (75.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  [1m[36mCategory Load (176.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+Started POST "/oauth/token" for 127.0.0.1 at 2022-11-21 15:22:38 +0500
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"email"=>"iamabdalhannan1@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iamabdalhannan1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7:in `authenticate'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessToken Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "jWf-JNvTtZCF4y9K2lT1tdCa2QjH93yaG2M63Irr8xQ"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", "D5uU_6rrT4VGw50sWoeztHM6P6Q76SvLD9SCGQFGycQ"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Create (2.5ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "refresh_token", "expires_in", "revoked_at", "created_at", "scopes", "previous_refresh_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", nil], ["token", "jWf-JNvTtZCF4y9K2lT1tdCa2QjH93yaG2M63Irr8xQ"], ["refresh_token", "D5uU_6rrT4VGw50sWoeztHM6P6Q76SvLD9SCGQFGycQ"], ["expires_in", 7200], ["revoked_at", nil], ["created_at", "2022-11-21 10:22:38.996236"], ["scopes", ""], ["previous_refresh_token", ""]]
+  [1m[36mTRANSACTION (12.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 200 OK in 454ms (Views: 2.8ms | ActiveRecord: 28.0ms | Allocations: 15802)
+
+
+Started POST "/oauth/revoke" for 127.0.0.1 at 2022-11-21 15:39:11 +0500
+Processing by Doorkeeper::TokensController#revoke as */*
+  Parameters: {"token"=>"[FILTERED]"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 403 Forbidden in 2ms (Views: 1.8ms | Allocations: 423)
+
+
+Started POST "/oauth/token" for 127.0.0.1 at 2022-11-21 16:01:46 +0500
+Processing by Doorkeeper::TokensController#create as */*
+  Parameters: {"email"=>"iamabdalhannan1@gmail.com", "password"=>"[FILTERED]", "grant_type"=>"password"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "iamabdalhannan1@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:7:in `authenticate'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDoorkeeper::AccessToken Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."token" = $1 LIMIT $2[0m  [["token", "SzGi74D-Ixk9Ak9gVAKIS3AbWRThdF99FDMR6BBqlBM"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "oauth_access_tokens" WHERE "oauth_access_tokens"."refresh_token" = $1 LIMIT $2[0m  [["refresh_token", "1KtTsSMrk6-ed48eWcw9yv9J6ztddGlLJ9xZew9gYQo"], ["LIMIT", 1]]
+  [1m[36mDoorkeeper::AccessToken Create (1.1ms)[0m  [1m[32mINSERT INTO "oauth_access_tokens" ("resource_owner_id", "application_id", "token", "refresh_token", "expires_in", "revoked_at", "created_at", "scopes", "previous_refresh_token") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["resource_owner_id", 2], ["application_id", nil], ["token", "SzGi74D-Ixk9Ak9gVAKIS3AbWRThdF99FDMR6BBqlBM"], ["refresh_token", "1KtTsSMrk6-ed48eWcw9yv9J6ztddGlLJ9xZew9gYQo"], ["expires_in", 7200], ["revoked_at", nil], ["created_at", "2022-11-21 11:01:47.015447"], ["scopes", ""], ["previous_refresh_token", ""]]
+  [1m[36mTRANSACTION (187.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 200 OK in 609ms (Views: 1.0ms | ActiveRecord: 202.1ms | Allocations: 9578)
+
+
+Started POST "/oauth/revoke" for 127.0.0.1 at 2022-11-21 16:02:01 +0500
+Processing by Doorkeeper::TokensController#revoke as */*
+  Parameters: {"token"=>"[FILTERED]"}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 403 Forbidden in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms | Allocations: 377)
+
+
